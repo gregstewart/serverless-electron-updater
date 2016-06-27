@@ -1,5 +1,11 @@
 {
   "name": "serverless-electron-updater",
-  "custom": {},
-  "plugins": []
+  "custom": {
+    "webpack": {
+      "configPath": "webpack.config.js"
+    }
+  },
+  "plugins": [
+    "serverless-webpack-plugin"
+  ]
 }
