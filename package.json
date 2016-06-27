@@ -1,14 +1,18 @@
 {
   "name": "serverless-electron-updater",
   "version": "0.0.1",
-  "description": "A Serverless Project and its Serverless Plugin dependencies.",
-  "author": "me",
+  "description": "A Serverless Project that uses AWS lambda to act as a Electron updater service.",
+  "author": "Greg Stewart",
   "license": "MIT",
   "private": false,
   "repository": {
     "type": "git",
     "url": "git://github.com/"
   },
+  "bugs": {
+    "url": "https://github.com/gregstewart/serverless-electron-updater/issues"
+  },
+  "homepage": "https://github.com/gregstewart/serverless-electron-updater#readme",
   "scripts": {
     "test": "NODE_ENV=test mocha",
     "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --verbose --include '**/*.js' ./node_modules/.bin/_mocha test"
