@@ -1,23 +1,9 @@
 {
-  "name": "serverless-electron-updater",
-  "version": "0.0.1",
-  "description": "A Serverless Project that uses AWS lambda to act as a Electron updater service.",
   "author": "Greg Stewart",
-  "license": "MIT",
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/"
-  },
   "bugs": {
     "url": "https://github.com/gregstewart/serverless-electron-updater/issues"
   },
-  "homepage": "https://github.com/gregstewart/serverless-electron-updater#readme",
-  "scripts": {
-    "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --verbose --include '**/*.js' ./node_modules/.bin/_mocha test",
-    "lint": "eslint -c .eslintrc ./**/*.js",
-    "test": "NODE_ENV=test mocha"
-  },
+  "description": "A Serverless Project that uses AWS lambda to act as a Electron updater service.",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -31,9 +17,28 @@
     "eslint": "^2.13.1",
     "isparta": "^4.0.0",
     "mocha": "^2.5.3",
+    "pre-push": "^0.1.1",
     "serverless-webpack-plugin": "^0.4.3",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
     "webpack": "^1.13.1"
-  }
+  },
+  "homepage": "https://github.com/gregstewart/serverless-electron-updater#readme",
+  "license": "MIT",
+  "name": "serverless-electron-updater",
+  "pre-push": [
+    "lint",
+    "test"
+  ],
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "scripts": {
+    "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --verbose --include '**/*.js' ./node_modules/.bin/_mocha test",
+    "lint": "eslint -c .eslintrc ./**/*.js",
+    "test": "NODE_ENV=test mocha"
+  },
+  "version": "0.0.1"
 }
