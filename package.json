@@ -14,8 +14,9 @@
   },
   "homepage": "https://github.com/gregstewart/serverless-electron-updater#readme",
   "scripts": {
-    "test": "NODE_ENV=test mocha",
-    "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --verbose --include '**/*.js' ./node_modules/.bin/_mocha test"
+    "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --verbose --include '**/*.js' ./node_modules/.bin/_mocha test",
+    "lint": "eslint -c .eslintrc ./**/*.js",
+    "test": "NODE_ENV=test mocha"
   },
   "dependencies": {},
   "devDependencies": {

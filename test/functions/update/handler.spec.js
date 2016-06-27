@@ -9,10 +9,10 @@ describe('Update endpoint', () => {
   it('callback is invoked', () => {
     const callback = sinon.spy();
 
-    handler({},{}, callback)
+    handler({},{}, callback);
 
     expect(callback).to.have.been.calledWith(null, {
       message: 'Go Serverless! Your Lambda function executed successfully!'
     });
   });
-})
+});
