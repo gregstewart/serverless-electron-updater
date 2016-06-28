@@ -9,7 +9,7 @@ API draft:
   * /update
     * [GET](https://d64zd4cq1e.execute-api.us-east-1.amazonaws.com/dev/update)
     * /{platform}
-      * [GET]()
+      * [GET](https://d64zd4cq1e.execute-api.us-east-1.amazonaws.com/dev/update/{platform})
   * /download
     * /{platform}
       * latest

@@ -38,6 +38,35 @@
           }
         }
       }
+    },
+    {
+      "path": "update/{platform}",
+      "method": "GET",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {
+            "integration.request.querystring.var3": "method.request.querystring.platform"
+          },
+          "requestTemplates": {
+            "application/json": "{\n\"platform\": \"$input.params('platform')\"}"
+          },
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {},
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
     }
   ],
   "events": [],
