@@ -40,18 +40,19 @@
       }
     },
     {
-      "path": "update/{platform}",
+      "path": "update/{platform}/{version}",
       "method": "GET",
       "type": "AWS",
       "authorizationType": "none",
       "authorizerFunction": false,
       "apiKeyRequired": false,
       "requestParameters": {
-            "integration.request.querystring.var3": "method.request.querystring.platform"
-          },
-          "requestTemplates": {
-            "application/json": "{\n\"platform\": \"$input.params('platform')\"}"
-          },
+        "integration.request.querystring.platform": "method.request.querystring.platform",
+        "integration.request.querystring.version": "method.request.querystring.version"
+      },
+      "requestTemplates": {
+        "application/json": "{\n\"platform\": \"$input.params('platform')\", \n\"version\": \"$input.params('version')\"}"
+      },
       "responses": {
         "400": {
           "statusCode": "400"

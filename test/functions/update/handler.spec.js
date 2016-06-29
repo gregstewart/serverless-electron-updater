@@ -16,13 +16,13 @@ describe('Update endpoint', () => {
     });
   });
 
-  it('update/darwin is called and callback is invoked', () => {
+  it('update/darwin/1.0.0 is called and callback is invoked', () => {
     const callback = sinon.spy();
 
-    handler({platform: 'darwin'},{}, callback);
+    handler({platform: 'darwin', version: '1.0.0'},{}, callback);
 
     expect(callback).to.have.been.calledWith(null, {
-      message: 'Go Serverless! Your Lambda function executed successfully with darwin!'
+      message: 'Go Serverless! Your Lambda function executed successfully with platform: darwin and version: 1.0.0!'
     });
   });
 });
