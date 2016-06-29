@@ -5,7 +5,7 @@ import GitHubApi from 'github';
 
 import nock from 'nock';
 import chai from 'chai';
-import sinon from 'sinon';
+import sinon from 'sinon';/* eslint no-unused-vars: 0 */
 
 chai.use(require('sinon-chai'));
 const expect = chai.expect;

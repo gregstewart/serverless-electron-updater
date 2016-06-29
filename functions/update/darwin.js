@@ -16,6 +16,6 @@ export function getReleases (github) {
 
 export function darwin (currentVerion, fetch, github) {
   return getReleases(github).then((releases) => {
-    log(releases);
+    console.log(releases); /* eslint no-console: 0 */
   });
 }
