@@ -4,7 +4,10 @@
     "url": "https://github.com/gregstewart/serverless-electron-updater/issues"
   },
   "description": "A Serverless Project that uses AWS lambda to act as a Electron updater service.",
-  "dependencies": {},
+  "dependencies": {
+    "github": "^2.0.1",
+    "node-fetch": "^1.5.3"
+  },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
@@ -17,6 +20,7 @@
     "eslint": "^2.13.1",
     "isparta": "^4.0.0",
     "mocha": "^2.5.3",
+    "nock": "^8.0.0",
     "pre-push": "^0.1.1",
     "serverless-webpack-plugin": "^0.4.3",
     "sinon": "^1.17.4",
