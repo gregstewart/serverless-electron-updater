@@ -6,7 +6,8 @@
   "description": "A Serverless Project that uses AWS lambda to act as a Electron updater service.",
   "dependencies": {
     "github": "^2.0.1",
-    "node-fetch": "^1.5.3"
+    "node-fetch": "^1.5.3",
+    "semver": "^5.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",

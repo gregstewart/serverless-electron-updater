@@ -1,3 +1,5 @@
+import semver from 'semver';
+
 export function getLatestReleases (github) {
   return new Promise((resolve, reject) => {
     github.repos.getLatestRelease({
@@ -13,8 +15,16 @@ export function getLatestReleases (github) {
   });
 }
 
+export function shouldUpdate (version, latestVersion) {
+  return semver.lt(version, latestVersion);
+}
+
 export function darwin (currentVerion, fetch, github) {
   return getLatestReleases(github).then((releases) => {
-    console.log(releases); /* eslint no-console: 0 */
+    if (shouldUpdate(currentVerion, releases.tag_name)) {
+      return true;
+    }
+
+    return false;
   });
 }
