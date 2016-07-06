@@ -29,7 +29,7 @@ describe('Darwin', () => {
     };
     darwin("0.1.0", fetch, github).then((result) => {
       // expect(result).to.deep.equal(expected);
-      expect(result).to.be.true
+      expect(result).to.be.true;
       done();
     });
   });
