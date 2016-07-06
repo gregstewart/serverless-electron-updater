@@ -1,6 +1,6 @@
 import { darwin, getLatestReleases, shouldUpdate } from '../../../functions/update/darwin.js';
 import { latestRelease } from '../../fixtures/github-responses.js';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import GitHubApi from 'github';
 
 import nock from 'nock';
@@ -21,16 +21,19 @@ describe('Darwin', () => {
   });
 
   it('calls the github api and returns payload', (done) => {
+    const release  = JSON.parse(latestRelease);
+
     const expected = {
-      "url": "https://github.com/gregstewart/hearthstone-tracker/releases/download/v0.2.0/HearthstoneTracker-darwin-x64.zip",
-      "name": "0.2.0",
-      "notes": "### Notable Changes\r\n\r\n* Fixed a bug that caused...",
-      "pub_date": "2016-02-02T21:51:58Z"
+      "url": release.assets[0].browser_download_url,
+      "name": release.name,
+      "notes":release.body,
+      "pub_date": release.published_at
     };
-    darwin("0.1.0", fetch, github).then((result) => {
-      // expect(result).to.deep.equal(expected);
-      expect(result).to.be.true;
+    darwin("0.1.0").then((result) => {
+      expect(result).to.equal(JSON.stringify(expected));
       done();
+    }).catch((error) => {
+      expect(error).to.be.undefined;
     });
   });
 
