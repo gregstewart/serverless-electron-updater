@@ -148,3 +148,41 @@ export const releases = `[
     "body": "Features:\\r\\n\\r\\n  - Show your win loss stats and win rate (@gregstewart)\\r\\n  - Capture player name (#5 @gregstewart)\\r\\n\\r\\nBugfixes:\\r\\n\\r\\n  - Win condition is incorrect (#4, @gregstewart)"
   }
 ]`;
+
+export const latestRelease = `{
+  "url": "https://api.github.com/repos/gregstewart/hearthstone-tracker/releases/3215361",
+  "assets_url": "https://api.github.com/repos/gregstewart/hearthstone-tracker/releases/3215361/assets",
+  "upload_url": "https://uploads.github.com/repos/gregstewart/hearthstone-tracker/releases/3215361/assets{?name,label}",
+  "html_url": "https://github.com/gregstewart/hearthstone-tracker/releases/tag/v0.1.4",
+  "id": 3215361,
+  "tag_name": "v0.1.4",
+  "target_commitish": "master",
+  "name": "[0.1.4] - (2016-02-13)",
+  "draft": false,
+  "author": {
+    "login": "gregstewart",
+    "id": 474076,
+    "avatar_url": "https://avatars.githubusercontent.com/u/474076?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/gregstewart",
+    "html_url": "https://github.com/gregstewart",
+    "followers_url": "https://api.github.com/users/gregstewart/followers",
+    "following_url": "https://api.github.com/users/gregstewart/following{/other_user}",
+    "gists_url": "https://api.github.com/users/gregstewart/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/gregstewart/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/gregstewart/subscriptions",
+    "organizations_url": "https://api.github.com/users/gregstewart/orgs",
+    "repos_url": "https://api.github.com/users/gregstewart/repos",
+    "events_url": "https://api.github.com/users/gregstewart/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/gregstewart/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "prerelease": false,
+  "created_at": "2016-02-13T16:52:39Z",
+  "published_at": "2016-05-12T21:26:09Z",
+  "assets": [],
+  "tarball_url": "https://api.github.com/repos/gregstewart/hearthstone-tracker/tarball/v0.1.4",
+  "zipball_url": "https://api.github.com/repos/gregstewart/hearthstone-tracker/zipball/v0.1.4",
+  "body": "Features:\\r\\n\\r\\n  - Show your win streak (#24 @gregstewart)"
+}`;

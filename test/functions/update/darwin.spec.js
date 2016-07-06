@@ -1,5 +1,5 @@
-import { darwin, getReleases } from '../../../functions/update/darwin.js';
-import { releases } from '../../fixtures/github-responses.js';
+import { darwin, getLatestReleases } from '../../../functions/update/darwin.js';
+import { latestRelease } from '../../fixtures/github-responses.js';
 import fetch from 'node-fetch';
 import GitHubApi from 'github';
 
@@ -30,15 +30,33 @@ describe('Darwin', () => {
     });
   });
 
-  describe('getReleases', () => {
+  describe('getLatestReleases', () => {
     it('returns releases from github', (done) => {
+      const expectedKeys = [ 'assets',
+       'assets_url',
+       'author',
+       'body',
+       'created_at',
+       'draft',
+       'html_url',
+       'id',
+       'meta',
+       'name',
+       'prerelease',
+       'published_at',
+       'tag_name',
+       'tarball_url',
+       'target_commitish',
+       'upload_url',
+       'url',
+       'zipball_url' ];
       nock('https://api.github.com/')
-        .get('/repos/gregstewart/hearthstone-tracker/releases?page=1')
-        .reply(200, releases);
+        .get('/repos/gregstewart/hearthstone-tracker/releases/latest')
+        .reply(200, latestRelease);
 
-      getReleases(github).then((result) => {
-        expect(result.length).to.equal(JSON.parse(releases).length);
-        expect(result).to.have.all.keys('0', '1', '2', 'meta');
+      getLatestReleases(github).then((result) => {
+        expect(result.length).to.equal(JSON.parse(latestRelease).length);
+        expect(result).to.have.all.keys(expectedKeys);
         done();
       }).catch((error) => {
         expect(error).to.be.undefined;

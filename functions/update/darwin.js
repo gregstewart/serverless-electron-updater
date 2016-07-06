@@ -1,21 +1,20 @@
-export function getReleases (github) {
+export function getLatestReleases (github) {
   return new Promise((resolve, reject) => {
-    github.repos.getReleases({
+    github.repos.getLatestRelease({
       user: "gregstewart",
       repo: "hearthstone-tracker",
       page: 1
-    }, (err, releases) => {
+    }, (err, release) => {
       if (err) {
         return reject(err);
       }
-
-      return resolve(releases);
+      return resolve(release);
     });
   });
 }
 
 export function darwin (currentVerion, fetch, github) {
-  return getReleases(github).then((releases) => {
+  return getLatestReleases(github).then((releases) => {
     console.log(releases); /* eslint no-console: 0 */
   });
 }
