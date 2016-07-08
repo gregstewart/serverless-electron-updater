@@ -34,12 +34,12 @@ export function darwin (currentVerion) {
       const asset = latestRelease.assets.find((a) => { if (a.name.match(patterns.darwin.zip)) return true; });
 
       if(asset) {
-        return JSON.stringify({
+        return {
           url: asset.browser_download_url,
           name: latestRelease.name,
           notes: latestRelease.body,
           pub_date: latestRelease.published_at
-        });
+        };
       }
     }
     // TODO: add test and response for no update available

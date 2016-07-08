@@ -35,7 +35,7 @@ describe('Update endpoint', () => {
     handler({platform: 'darwin', version: '0.0.1'},{}, callback);
 
     setTimeout(() => {
-      expect(callback).to.have.been.calledWith(null, JSON.stringify(expected));
+      expect(callback).to.have.been.calledWith(null, expected);
       done();
     }, 10);
   });

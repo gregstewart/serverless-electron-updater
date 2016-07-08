@@ -24,8 +24,8 @@ describe('Darwin', () => {
       "notes":release.body,
       "pub_date": release.published_at
     };
-    darwin("0.1.0").then((result) => {
-      expect(result).to.equal(JSON.stringify(expected));
+    darwin('v0.1.0').then((result) => {
+      expect(result).to.deep.equal(expected);
       done();
     }).catch((error) => {
       expect(error).to.be.undefined;
