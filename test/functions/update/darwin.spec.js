@@ -1,7 +1,5 @@
 import { darwin, getLatestReleases, shouldUpdate } from '../../../functions/update/darwin.js';
 import { latestRelease } from '../../fixtures/github-responses.js';
-// import fetch from 'node-fetch';
-import GitHubApi from 'github';
 
 import nock from 'nock';
 import chai from 'chai';
@@ -11,10 +9,7 @@ chai.use(require('sinon-chai'));
 const expect = chai.expect;
 
 describe('Darwin', () => {
-  let github;
-
   beforeEach(() => {
-    github = new GitHubApi();
     nock('https://api.github.com/')
       .get('/repos/gregstewart/hearthstone-tracker/releases/latest')
       .reply(200, latestRelease);
@@ -63,7 +58,6 @@ describe('Darwin', () => {
        'draft',
        'html_url',
        'id',
-       'meta',
        'name',
        'prerelease',
        'published_at',
@@ -73,7 +67,7 @@ describe('Darwin', () => {
        'upload_url',
        'url',
        'zipball_url' ];
-      getLatestReleases(github).then((result) => {
+      getLatestReleases().then((result) => {
         expect(result.length).to.equal(JSON.parse(latestRelease).length);
         expect(result).to.have.all.keys(expectedKeys);
         done();

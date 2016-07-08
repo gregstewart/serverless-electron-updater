@@ -1,5 +1,5 @@
 import semver from 'semver';
-import GitHubApi from 'github';
+import fetch from 'node-fetch';
 
 const patterns = {
   darwin: {
@@ -12,19 +12,14 @@ const patterns = {
   }
 };
 
-export function getLatestReleases (github) {
-  return new Promise((resolve, reject) => {
-    github.repos.getLatestRelease({
-      user: "gregstewart",
-      repo: "hearthstone-tracker",
-      page: 1
-    }, (err, release) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(release);
+export function getLatestReleases () {
+  const options = { headers: {
+    'Accept': 'application/vnd.github.v3+json'
+  }};
+  return fetch('https://api.github.com/repos/gregstewart/hearthstone-tracker/releases/latest', options)
+    .then((response) => {
+      return response.json();
     });
-  });
 }
 
 export function shouldUpdate (version, latestVersion) {
@@ -32,8 +27,7 @@ export function shouldUpdate (version, latestVersion) {
 }
 
 export function darwin (currentVerion) {
-  const github = new GitHubApi();
-  return getLatestReleases(github).then((latestRelease) => {
+  return getLatestReleases().then((latestRelease) => {
     if (shouldUpdate(currentVerion, latestRelease.tag_name)) {
       const asset = latestRelease.assets.find((a) => { if (a.name.match(patterns.darwin.zip)) return true; });
 
