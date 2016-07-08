@@ -27,8 +27,10 @@ export function shouldUpdate (version, latestVersion) {
 }
 
 export function darwin (currentVerion) {
+  // TODO: add test and response for invalid request(s): repo not found, user not found, server error
   return getLatestReleases().then((latestRelease) => {
     if (shouldUpdate(currentVerion, latestRelease.tag_name)) {
+      // TODO: add test and response for asset not found
       const asset = latestRelease.assets.find((a) => { if (a.name.match(patterns.darwin.zip)) return true; });
 
       if(asset) {
@@ -39,10 +41,8 @@ export function darwin (currentVerion) {
           pub_date: latestRelease.published_at
         });
       }
-
-      return true;
     }
-
+    // TODO: add test and response for no update available
     return false;
   });
 }
