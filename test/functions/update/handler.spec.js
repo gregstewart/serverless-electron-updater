@@ -8,18 +8,23 @@ chai.use(require('sinon-chai'));
 const expect = chai.expect;
 
 describe('Update endpoint', () => {
-  it('update/ is called and callback is invoked', () => {
-    const callback = sinon.spy();
+  it('update/ is called and context.fail is invoked', () => {
+    const context = {
+      fail: sinon.spy()
+    };
 
-    handler({},{}, callback);
+    handler({}, context);
 
-    expect(callback).to.have.been.calledWith(null, {
-      message: 'Go Serverless! Your Lambda function executed successfully!'
+    expect(context.fail).to.have.been.calledWith({
+      code: "NoContent",
+      message: "Nothing to see here"
     });
   });
 
-  it('update/darwin/1.0.0 is called and callback is invoked', (done) => {
-    const callback = sinon.spy();
+  it('update/darwin/1.0.0 is called and context.done is invoked', (done) => {
+    const context = {
+      done: sinon.spy()
+    };
     const release  = JSON.parse(latestRelease);
     const expected = {
       "url": release.assets[0].browser_download_url,
@@ -32,10 +37,10 @@ describe('Update endpoint', () => {
       .get('/repos/gregstewart/hearthstone-tracker/releases/latest')
       .reply(200, latestRelease);
 
-    handler({platform: 'darwin', version: '0.0.1'},{}, callback);
+    handler({platform: 'darwin', version: '0.0.1'}, context);
 
     setTimeout(() => {
-      expect(callback).to.have.been.calledWith(null, expected);
+      expect(context.done).to.have.been.calledWith(null, expected);
       done();
     }, 10);
   });
