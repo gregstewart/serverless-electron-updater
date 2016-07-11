@@ -28,7 +28,7 @@
           "statusCode": "400"
         },
         "203" : {
-          "selectionPattern" : ".*NoContent.*",
+          "selectionPattern" : "^[NoContent].*",
           "statusCode": "203"
         },
         "default": {

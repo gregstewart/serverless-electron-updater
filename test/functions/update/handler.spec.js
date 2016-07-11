@@ -15,10 +15,7 @@ describe('Update endpoint', () => {
 
     handler({}, context);
 
-    expect(context.fail).to.have.been.calledWith({
-      code: "NoContent",
-      message: "Nothing to see here"
-    });
+    expect(context.fail).to.have.been.calledWith(new Error("[NoContent] Nothing to see here"));
   });
 
   it('update/darwin/1.0.0 is called and context.done is invoked', (done) => {

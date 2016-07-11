@@ -10,9 +10,5 @@ export default (event, context) => {
     }
   }
 
-  const error = {
-    code: "NoContent",
-    message: "Nothing to see here"
-  };
-  return context.fail(error);
+  return context.fail(new Error("[NoContent] Nothing to see here"));
 };
